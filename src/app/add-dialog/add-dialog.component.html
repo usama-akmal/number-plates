@@ -1,0 +1,75 @@
+    <h1 mat-dialog-title>Add Number Plate Details</h1>
+<div mat-dialog-content>
+    <p>
+        This dialog is to add number plate details.
+    </p>
+    <mat-radio-group aria-label="Select an option">
+        <mat-radio-button value="1" checked (click)="formCheck = 1;">Lost Number Plate</mat-radio-button>
+        <mat-radio-button value="2" (click)="formCheck = 2;">Found Number</mat-radio-button>
+    </mat-radio-group>
+    <div style="margin: 15px;"></div>
+    <form [formGroup]="formOne" *ngIf="formCheck == 1" (ngSubmit)="onSubmit('L')">
+        <div class="LostContainer" >
+            <mat-form-field appearance="fill">
+                <mat-label>Enter Number Plate</mat-label>
+                <input matInput placeholder="ABC-122" formControlName="numberPlate" required>
+                <mat-error>Number plate required</mat-error>
+            </mat-form-field>
+            <br>
+            <mat-form-field appearance="fill">
+                <mat-label>Enter Your Name</mat-label>
+                <input matInput placeholder="Zaid Khan" formControlName="ownerName" >
+                <mat-error>Enter your name</mat-error>
+            </mat-form-field>
+            <br>
+            <mat-form-field appearance="fill">
+                <mat-label>Enter Your Contact</mat-label>
+                <input matInput placeholder="03343554688" formControlName="ownerContact" >
+                <mat-error>Enter contact number</mat-error>
+            </mat-form-field>
+            <br>
+            <mat-form-field appearance="fill">
+              <mat-label>Lost Area Details</mat-label>
+              <textarea matInput formControlName="areaDetails"></textarea>
+              <mat-error>Enter lost area details</mat-error>
+            </mat-form-field>
+        </div>
+        <div mat-dialog-actions>
+            <button mat-button mat-dialog-close>Close</button>
+            <button mat-button type="submit">Add</button>
+        </div>
+    </form>
+    
+    <form [formGroup]="formTwo" *ngIf="formCheck == 2" (ngSubmit)="onSubmit('F')">
+        <div class="FoundContainer" >
+            <mat-form-field appearance="fill">
+                <mat-label>Enter Number Plate</mat-label>
+                <input matInput placeholder="ABC-122" formControlName="numberPlateF" required>
+                <mat-error>Number plate required</mat-error>
+            </mat-form-field>
+            <br>
+            <mat-form-field appearance="fill">
+                <mat-label>Enter Your Name</mat-label>
+                <input matInput placeholder="Zaid Khan" formControlName="foundBy" >
+                <mat-error>Enter your name</mat-error>
+            </mat-form-field>
+            <br>
+            <mat-form-field appearance="fill">
+                <mat-label>Enter Your Contact</mat-label>
+                <input matInput placeholder="03343558888" formControlName="foundByContact" >
+                <mat-error>Enter your contact</mat-error>
+            </mat-form-field>
+            <br>
+            <mat-form-field appearance="fill">
+              <mat-label>Found Area Details</mat-label>
+              <textarea matInput formControlName="areaDetailsF"></textarea>
+              <mat-error>Enter found area details</mat-error>
+            </mat-form-field>
+        </div>    
+        <div mat-dialog-actions>
+            <button mat-button mat-dialog-close>Close</button>
+            <button mat-button type="submit">Add</button>
+        </div>
+    </form>    
+</div>
+

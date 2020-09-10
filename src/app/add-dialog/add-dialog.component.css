@@ -1,0 +1,8 @@
+.mat-radio-button ~ .mat-radio-button {
+    margin-left: 16px;
+}
+
+/deep/ .mat-dialog-content {
+    overflow-y: hidden !important;
+    height: 420px;
+}
